@@ -5,13 +5,13 @@ def read_input():
     return list(map(int, lines))
 
 
-def curr_pos_increases(numbers, pos):
+def is_current_index_increasing(numbers, pos):
     return numbers[pos+1] > numbers[pos]
 
 def count_increasing(numbers):
     increasing = 0
     for i in range(0, len(numbers)-1):
-        if curr_pos_increases(numbers, i):
+        if is_current_index_increasing(numbers, i):
             increasing += 1
     return increasing
 
