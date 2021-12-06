@@ -4,9 +4,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-class Base {
-
- static class CoordinateCalculator {
+public class CoordinateCalculator {
 
      private final Function<Command, Consumer<Coordinate>> toOperations;
 
@@ -25,7 +23,6 @@ class Base {
          var value = Integer.parseInt(parts[1]);
          return new Command(operation, value);
      }
- }
 
  static class Command {
      public Operation operation;
@@ -49,9 +46,7 @@ class Base {
  }
     static class Coordinate {
         public int x = 0, y = 0, aim = 0;
-
         public int getResult() { return x*y; }
-
         public void apply(Consumer<Coordinate> operation) { operation.accept(this); }
     }
 }

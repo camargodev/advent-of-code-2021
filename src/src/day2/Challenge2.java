@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class Challenge2 extends Base {
+public class Challenge2 {
     public static void main(String[] args) throws IOException {
         var lines = FileReader.read("day2/res/input.txt");
         var calculator = new CoordinateCalculator(consumerForCoordinateWithAim());
@@ -15,7 +15,7 @@ public class Challenge2 extends Base {
         System.out.println(result);
     }
 
-    static Function<Command, Consumer<Coordinate>> consumerForCoordinateWithAim() {
+    static Function<CoordinateCalculator.Command, Consumer<CoordinateCalculator.Coordinate>> consumerForCoordinateWithAim() {
         return command -> switch (command.operation) {
             case FORWARD -> coordinate -> { coordinate.x += command.value;
                                             coordinate.y += coordinate.aim * command.value; };
